@@ -1,6 +1,8 @@
 # Calculator
 
-A Javascript calculator
+A Javascript calculator performing basic maths operations in day and night modes.
+
+Current screenshots:
 
 ![image](https://user-images.githubusercontent.com/100544932/159833548-a79d12eb-0c7f-4cd7-ad01-e5623a9e202e.png)
 
