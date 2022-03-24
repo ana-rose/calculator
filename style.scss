@@ -1,0 +1,116 @@
+body {
+    background-color: #259b91;
+}
+
+.calculator {
+    &--night {
+        background-color: black;
+        color: white;
+    }
+    background-color: white;
+    height: 500px;
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    &__screen {
+        height: 30%;
+    }
+    &__buttons {
+        height: 70%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "switch switch resett plus"
+            "one two three minus"
+            "four five six mult"
+            "seven eight nine divide"
+            "zer dott equals equals";
+    }
+}
+#switch {
+    grid-area: switch;
+}
+#reset {
+    grid-area: resett;
+}
+#plus {
+    grid-area: plus;
+}
+#one {
+    grid-area: one;
+}
+#two {
+    grid-area: two;
+}
+#three {
+    grid-area: three;
+}
+#minus {
+    grid-area: minus;
+}
+#four {
+    grid-area: four;
+}
+#five {
+    grid-area: five;
+}
+#six {
+    grid-area: six;
+}
+#mult {
+    grid-area: mult;
+}
+#seven {
+    grid-area: seven;
+}
+#eight {
+    grid-area: eight;
+}
+#nine {
+    grid-area: nine;
+}
+#divide {
+    grid-area: divide;
+}
+#zer {
+    grid-area: zer;
+}
+#dott {
+    grid-area: dott;
+}
+#equals {
+    grid-area: equals;
+    background-color: #29aca0;
+    color: white;
+}
+.button {
+    &--night {
+        background-color: black;
+        color: white;
+        border: 1px solid #302f2f;
+    }
+
+    border: 1px solid #e0dede;
+    font-size: 20px;
+    color: black;
+
+    &:active {
+        transform: translateY(1px);
+    }
+    &__dark-green {
+        background-color: #c0ece8;
+        border: 1px solid #e0dede;
+        font-size: 20px;
+        &:active {
+            transform: translateY(1px);
+        }
+
+        &--night {
+            color: white;
+            background-color: #0e4245;
+            border: 1px solid #302f2f;
+        }
+    }
+}
