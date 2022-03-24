@@ -29,6 +29,13 @@ body {
             "zer dott equals equals";
     }
 }
+#screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 40px;
+    padding: 10px;
+}
 #switch {
     grid-area: switch;
 }
