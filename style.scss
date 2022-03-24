@@ -15,10 +15,10 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     &__screen {
-        height: 28%;
+        height: 30%;
     }
     &__buttons {
-        height: 70%;
+        height: 68%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
