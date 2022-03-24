@@ -7,7 +7,9 @@ const icon = document.getElementById("icon");
 const icon2 = document.getElementById("icon2");
 const screen = document.getElementById("screen");
 const numberBtns = document.querySelectorAll(".number");
+const zero = document.getElementById("zer");
 
+// Day & night cours -toggle
 switchButton.addEventListener("click", () => {
     btns.forEach((button) => button.classList.toggle("button--night"));
     calculator.classList.toggle("calculator--night");
@@ -15,6 +17,8 @@ switchButton.addEventListener("click", () => {
         button.classList.toggle("button__dark-green--night"),
     );
 });
+
+// Day & night icons - toggle
 icon2.style.display = "none";
 
 const dayNight = () => {
@@ -27,24 +31,60 @@ const dayNight = () => {
     }
 };
 
+// New arrray for future numbers
 let numArray = [];
 const addNum = () => {
     numArray.push();
 };
 
+// Displaying pressed buttons on the screen
+
 for (let i = 0; i < numberBtns.length; i++) {
     numberBtns[i].addEventListener("click", () => {
         screen.innerHTML = screen.innerHTML + numberBtns[i].value;
+
+        // Putting numbers in an array
         numArray.push(numberBtns[i].value);
+
+        // Handling too long numbers
         if (numArray.length > 10) {
             alert("This number is too long.");
             screen.removeChild(screen.childNodes[0]);
+            zero.addEventListener(
+                "click",
+                () => {
+                    screen.innerHTML = " ";
+                },
+                { once: true },
+            );
             numArray = [];
         }
-        console.log(numArray);
+        // Converting array into string
+        const numberString = numArray.join("");
+        console.log(numberString);
     });
 }
+
+// Reset (C) button
 resetButton.addEventListener("click", () => {
     screen.removeChild(screen.childNodes[0]);
+    zero.addEventListener(
+        "click",
+        () => {
+            screen.innerHTML = " ";
+        },
+        { once: true },
+    );
+
     numArray = [];
 });
+
+// First button pressed cannot be zero
+
+zero.addEventListener(
+    "click",
+    () => {
+        screen.innerHTML = " ";
+    },
+    { once: true },
+);

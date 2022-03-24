@@ -16,10 +16,10 @@ body {
   color: white;
 }
 .calculator__screen {
-  height: 30%;
+  height: 32%;
 }
 .calculator__buttons {
-  height: 68%;
+  height: 65%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "switch switch resett plus" "one two three minus" "four five six mult" "seven eight nine divide" "zer dott equals equals";
