@@ -31,11 +31,16 @@ const dayNight = () => {
     }
 };
 
-// New arrray for future numbers
+// New array for future numbers
 let numArray = [];
 const addNum = () => {
     numArray.push();
 };
+// Reset (C) button
+resetButton.addEventListener("click", () => {
+    screen.removeChild(screen.childNodes[0]);
+    numArray = [];
+});
 
 // Displaying pressed buttons on the screen
 
@@ -57,9 +62,3 @@ for (let i = 0; i < numberBtns.length; i++) {
         console.log(numberString);
     });
 }
-
-// Reset (C) button
-resetButton.addEventListener("click", () => {
-    screen.removeChild(screen.childNodes[0]);
-    numArray = [];
-});
