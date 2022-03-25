@@ -9,7 +9,7 @@ const screen = document.getElementById("screen");
 const numberBtns = document.querySelectorAll(".number");
 const zero = document.getElementById("zer");
 
-// Day & night cours -toggle
+// Day & night colours -toggle
 switchButton.addEventListener("click", () => {
     btns.forEach((button) => button.classList.toggle("button--night"));
     calculator.classList.toggle("calculator--night");
@@ -50,13 +50,6 @@ for (let i = 0; i < numberBtns.length; i++) {
         if (numArray.length > 10) {
             alert("This number is too long.");
             screen.removeChild(screen.childNodes[0]);
-            zero.addEventListener(
-                "click",
-                () => {
-                    screen.innerHTML = " ";
-                },
-                { once: true },
-            );
             numArray = [];
         }
         // Converting array into string
@@ -68,23 +61,5 @@ for (let i = 0; i < numberBtns.length; i++) {
 // Reset (C) button
 resetButton.addEventListener("click", () => {
     screen.removeChild(screen.childNodes[0]);
-    zero.addEventListener(
-        "click",
-        () => {
-            screen.innerHTML = " ";
-        },
-        { once: true },
-    );
-
     numArray = [];
 });
-
-// First button pressed cannot be zero
-
-zero.addEventListener(
-    "click",
-    () => {
-        screen.innerHTML = " ";
-    },
-    { once: true },
-);
