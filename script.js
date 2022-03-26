@@ -5,9 +5,12 @@ const greenBtns = document.querySelectorAll(".button__dark-green");
 const calculator = document.getElementById("calculator");
 const icon = document.getElementById("icon");
 const icon2 = document.getElementById("icon2");
-const screen = document.getElementById("screen");
+const screen1 = document.getElementById("screen1");
+const screen2 = document.getElementById("screen2");
 const numberBtns = document.querySelectorAll(".number");
-const zero = document.getElementById("zer");
+const operatorBtns = document.querySelectorAll(".operator");
+const plus = document.getElementById("plus");
+const equals = document.getElementById("equals");
 
 // Day & night colours -toggle
 switchButton.addEventListener("click", () => {
@@ -33,32 +36,31 @@ const dayNight = () => {
 
 // New array for future numbers
 let numArray = [];
-const addNum = () => {
-    numArray.push();
-};
+let numArray2 = [];
+let numberString = "";
+let input = 0;
+let prevValue = 0;
+
 // Reset (C) button
 resetButton.addEventListener("click", () => {
-    screen.removeChild(screen.childNodes[0]);
+    screen.removeChild(screen1.childNodes[0]);
     numArray = [];
 });
 
 // Displaying pressed buttons on the screen
 
-for (let i = 0; i < numberBtns.length; i++) {
-    numberBtns[i].addEventListener("click", () => {
-        screen.innerHTML = screen.innerHTML + numberBtns[i].value;
+numberBtns.forEach((button) => {
+    button.addEventListener("click", () => {
+        screen.innerHTML += button.value;
+        numArray.push(button.value);
+        numberString = numArray.join("");
+        input = Number(numberString);
+        console.log(input);
 
-        // Putting numbers in an array
-        numArray.push(numberBtns[i].value);
-
-        // Handling too long numbers
         if (numArray.length > 10) {
             alert("This number is too long.");
             screen.removeChild(screen.childNodes[0]);
             numArray = [];
         }
-        // Converting array into string
-        const numberString = numArray.join("");
-        console.log(numberString);
     });
-}
+});
