@@ -16,7 +16,7 @@ body {
   color: white;
 }
 .calculator__screen {
-  height: 32%;
+  height: 16%;
 }
 .calculator__buttons {
   height: 65%;
@@ -25,12 +25,17 @@ body {
   grid-template-areas: "switch switch resett plus" "one two three minus" "four five six mult" "seven eight nine divide" "zer dott equals equals";
 }
 
-#screen {
+#screen1,
+#screen2 {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   font-size: 40px;
   padding: 10px;
+}
+
+#screen1 {
+  font-size: 30px;
 }
 
 #switch {
@@ -108,6 +113,7 @@ body {
 }
 
 .button {
+  cursor: pointer;
   border: 1px solid #e0dede;
   font-size: 20px;
   color: black;

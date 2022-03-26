@@ -15,7 +15,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     &__screen {
-        height: 32%;
+        height: 16%;
     }
     &__buttons {
         height: 65%;
@@ -29,12 +29,16 @@ body {
             "zer dott equals equals";
     }
 }
-#screen {
+#screen1,
+#screen2 {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     font-size: 40px;
     padding: 10px;
+}
+#screen1 {
+    font-size: 30px;
 }
 #switch {
     grid-area: switch;
@@ -93,6 +97,7 @@ body {
     color: white;
 }
 .button {
+    cursor: pointer;
     &--night {
         background-color: black;
         color: white;
