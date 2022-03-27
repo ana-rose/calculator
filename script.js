@@ -34,33 +34,60 @@ const dayNight = () => {
     }
 };
 
-// New array for future numbers
-let numArray = [];
-let numArray2 = [];
-let numberString = "";
-let input = 0;
-let prevValue = 0;
+// Function when number buttons are clicked:
+const numBtnsFn = (clicked) => {
+    if (screen2.innerHTML.length > 10) {
+        alert("This number is too long.");
+        screen2.innerHTML = "";
+    } else {
+        screen2.innerHTML += clicked;
+    }
+};
 
-// Reset (C) button
+// Number buttons - click event listener
+numberBtns.forEach((button) =>
+    button.addEventListener("click", () => {
+        numBtnsFn(button.value);
+    }),
+);
+
+// Reset button
 resetButton.addEventListener("click", () => {
-    screen.removeChild(screen1.childNodes[0]);
-    numArray = [];
+    screen1.innerHTML = "";
+    screen2.innerHTML = "";
 });
 
-// Displaying pressed buttons on the screen
+// Function when operator buttons are clicked
+const operatorBtnFn = (clicked) => {
+    // let currentInput = screen2.innerHTML;
+    if (clicked === "-" && !screen2.innerHTML) {
+        screen2.innerHTML = "-";
+    } else if (
+        (clicked === "+" || clicked === "/" || clicked === "*") &&
+        !screen2.innerHTML
+    ) {
+        screen2.innerHTML = "";
+    } else {
+        screen1.innerHTML = screen2.innerHTML + clicked;
+        screen2.innerHTML = "";
+    }
+    if (
+        screen1.innerHTML.includes("-+") ||
+        screen1.innerHTML.includes("--") ||
+        screen1.innerHTML.includes("-*") ||
+        screen1.innerHTML.includes("-/")
+    ) {
+        screen1.innerHTML = "";
+    }
+};
 
-numberBtns.forEach((button) => {
+// Operator buttons event listener
+operatorBtns.forEach((button) => {
     button.addEventListener("click", () => {
-        screen.innerHTML += button.value;
-        numArray.push(button.value);
-        numberString = numArray.join("");
-        input = Number(numberString);
-        console.log(input);
-
-        if (numArray.length > 10) {
-            alert("This number is too long.");
-            screen.removeChild(screen.childNodes[0]);
-            numArray = [];
-        }
+        operatorBtnFn(button.value);
     });
 });
+
+const equalsBtnFn = () => {};
+
+equals.addEventListener("click", equalsBtnFn);
