@@ -33,13 +33,14 @@ body {
 #screen2 {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-start;
     font-size: 40px;
     padding: 10px;
 }
 #screen1 {
     font-size: 30px;
     color: #29aca0;
+    align-items: flex-end;
 }
 #switch {
     grid-area: switch;
