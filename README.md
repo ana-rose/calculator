@@ -23,6 +23,6 @@ Current screenshots:
 3. Implementing day/night modes switch
 4. Making pressed number buttons display numbers on the "screen" via Event Listener. Total number of digits is limited to 10.
 5. Creating an Event Listener for operator buttons (+, -, *, /). Making sure that the only operator that can be displayed prior to a number is "-", at the same time also excluding the following options: "-+", "--", "-* and "-/".
-6.Targeting the reset button
+6. Targeting the reset button
 7. Equals button Event Listener. Accessing the strings from previous steps and converting them into numbers. Specifying scenarios for different operators, including the situation when "=" has been pressed prior to an operator button.
 8. Handling decimal numbers and limiting a number of decimals up to 5. 
