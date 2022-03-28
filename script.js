@@ -59,7 +59,6 @@ resetButton.addEventListener("click", () => {
 
 // Function when operator buttons are clicked
 const operatorBtnFn = (clicked) => {
-    // let currentInput = screen2.innerHTML;
     if (clicked === "-" && !screen2.innerHTML) {
         screen2.innerHTML = "-";
     } else if (
@@ -88,6 +87,39 @@ operatorBtns.forEach((button) => {
     });
 });
 
-const equalsBtnFn = () => {};
+// Equals button event listener + function
 
-equals.addEventListener("click", equalsBtnFn);
+equals.addEventListener("click", () => {
+    let prevInput = screen1.innerHTML;
+    let currInput = screen2.innerHTML;
+    // Converting innerHTML into numbers
+    const firstNumber = parseFloat(prevInput);
+    const secondNumber = parseFloat(currInput);
+    // Operator
+    const myOperator = prevInput.charAt(prevInput.length - 1);
+    let result = 0;
+    let resultDec = 0;
+    if (myOperator === "+") {
+        result = firstNumber + secondNumber;
+        screen1.innerHTML = `${firstNumber} + ${secondNumber} =`;
+    } else if (myOperator === "-") {
+        result = firstNumber - secondNumber;
+        screen1.innerHTML = `${firstNumber} - ${secondNumber} =`;
+    } else if (myOperator === "*") {
+        result = firstNumber * secondNumber;
+        screen1.innerHTML = `${firstNumber} * ${secondNumber} =`;
+    } else if (myOperator === "/") {
+        result = firstNumber / secondNumber;
+        screen1.innerHTML = `${firstNumber} /${secondNumber} =`;
+    } else {
+        result = screen2.innerHTML;
+        screen1.innerHTML = "";
+    }
+    // Decimals
+    if (result % 1) {
+        resultDec = result.toFixed(5);
+        screen2.innerHTML = "" + parseFloat(resultDec);
+    } else {
+        screen2.innerHTML = "" + result;
+    }
+});
