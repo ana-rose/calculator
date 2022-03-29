@@ -125,6 +125,9 @@ equals.addEventListener("click", () => {
     } else if (myOperator === "*") {
         result = firstNumber * secondNumber;
         screen1.innerHTML = `${firstNumber} * ${secondNumber} =`;
+        if (screen2.innerHTML.length > 10) {
+            alert("Long number");
+        }
     } else if (myOperator === "/") {
         result = firstNumber / secondNumber;
         screen1.innerHTML = `${firstNumber} /${secondNumber} =`;
@@ -132,11 +135,16 @@ equals.addEventListener("click", () => {
         result = screen2.innerHTML;
         screen1.innerHTML = "";
     }
+
     // Decimals
     if (result % 1) {
         resultDec = result.toFixed(5);
         screen2.innerHTML = "" + parseFloat(resultDec);
     } else {
         screen2.innerHTML = "" + result;
+    }
+    // If operation results in number > 10 digits
+    if (!(result % 1) && result.toString().length > 10) {
+        screen2.innerHTML = result.toExponential(5);
     }
 });
