@@ -35,12 +35,18 @@ const dayNight = () => {
 };
 
 // Function when number buttons are clicked:
+
 const numBtnsFn = (clicked) => {
     if (screen2.innerHTML.length > 10) {
         alert("This number is too long.");
         screen2.innerHTML = "";
     } else {
         screen2.innerHTML += clicked;
+    }
+    // Targeting the situation when the very first number is 0 and is not followed by "." - we want to remove 0:
+    subString = screen2.innerHTML.slice(0, 2);
+    if (subString[0] === "0" && subString[subString.length - 1] !== ".") {
+        screen2.innerHTML = clicked;
     }
 };
 
