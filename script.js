@@ -83,6 +83,8 @@ const operatorBtnFn = (clicked) => {
         !screen2.innerHTML
     ) {
         screen2.innerHTML = "";
+    } else if (screen1.innerHTML && screen2.innerHTML) {
+        calculate();
     } else {
         screen1.innerHTML = screen2.innerHTML + clicked;
         screen2.innerHTML = "";
@@ -106,45 +108,41 @@ operatorBtns.forEach((button) => {
 
 // Equals button event listener + function
 
-equals.addEventListener("click", () => {
+const calculate = (firstNumber, secondNumber, myOperator) => {
     let prevInput = screen1.innerHTML;
     let currInput = screen2.innerHTML;
-    // Converting innerHTML into numbers
-    const firstNumber = parseFloat(prevInput);
-    const secondNumber = parseFloat(currInput);
-    // Operator
-    const myOperator = prevInput.charAt(prevInput.length - 1);
-    let result = 0;
-    let resultDec = 0;
-    if (myOperator === "+") {
-        result = firstNumber + secondNumber;
-        screen1.innerHTML = `${firstNumber} + ${secondNumber} =`;
-    } else if (myOperator === "-") {
-        result = firstNumber - secondNumber;
-        screen1.innerHTML = `${firstNumber} - ${secondNumber} =`;
-    } else if (myOperator === "*") {
-        result = firstNumber * secondNumber;
-        screen1.innerHTML = `${firstNumber} * ${secondNumber} =`;
-        if (screen2.innerHTML.length > 10) {
-            alert("Long number");
-        }
-    } else if (myOperator === "/") {
-        result = firstNumber / secondNumber;
-        screen1.innerHTML = `${firstNumber} /${secondNumber} =`;
-    } else {
-        result = screen2.innerHTML;
-        screen1.innerHTML = "";
+    firstNumber = parseFloat(prevInput);
+    secondNumber = parseFloat(currInput);
+    myOperator = prevInput.charAt(prevInput.length - 1);
+    let result;
+    let resultDec;
+    switch (myOperator) {
+        case "+":
+            result = firstNumber + secondNumber;
+            break;
+        case "-":
+            result = firstNumber - secondNumber;
+            break;
+        case "*":
+            result = firstNumber * secondNumber;
+            break;
+        case "/":
+            result = firstNumber / secondNumber;
+            break;
+        default:
+            result = screen2.innerHTML;
     }
-
+    screen1.innerHTML = "";
+    screen2.innerHTML = result;
     // Decimals
     if (result % 1) {
         resultDec = result.toFixed(5);
         screen2.innerHTML = "" + parseFloat(resultDec);
-    } else {
-        screen2.innerHTML = "" + result;
     }
     // If operation results in number > 10 digits
     if (!(result % 1) && result.toString().length > 10) {
         screen2.innerHTML = result.toExponential(5);
     }
-});
+};
+
+equals.addEventListener("click", calculate);
