@@ -11,6 +11,7 @@ const numberBtns = document.querySelectorAll(".number");
 const operatorBtns = document.querySelectorAll(".operator");
 const plus = document.getElementById("plus");
 const equals = document.getElementById("equals");
+const dot = document.getElementById("dott");
 
 // Day & night colours -toggle
 switchButton.addEventListener("click", () => {
@@ -56,6 +57,16 @@ numberBtns.forEach((button) =>
         numBtnsFn(button.value);
     }),
 );
+
+// Decimal point- cannot be more than 1 per number
+
+dot.addEventListener("click", () => {
+    if (screen2.innerHTML.includes(".")) {
+        alert("This number already has a decimal point");
+    } else {
+        screen2.innerHTML += ".";
+    }
+});
 
 // Reset button
 resetButton.addEventListener("click", () => {
