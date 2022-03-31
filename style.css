@@ -28,7 +28,7 @@ body {
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "switch switch resett plus" "one two three minus" "four five six mult" "seven eight nine divide" "zer dott equals equals";
+      grid-template-areas: "switch deleteOne resett plus" "one two three minus" "four five six mult" "seven eight nine divide" "zer dott equals equals";
 }
 
 #screen1,
@@ -57,7 +57,6 @@ body {
 #switch {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: switch;
 }
 
@@ -65,6 +64,12 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: resett;
+}
+
+#deleteOne {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: deleteOne;
 }
 
 #plus {

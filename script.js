@@ -12,6 +12,7 @@ const operatorBtns = document.querySelectorAll(".operator");
 const plus = document.getElementById("plus");
 const equals = document.getElementById("equals");
 const dot = document.getElementById("dott");
+const deleteOne = document.getElementById("deleteOne");
 
 // Day & night colours -toggle
 switchButton.addEventListener("click", () => {
@@ -149,3 +150,13 @@ const calculate = (firstNumber, secondNumber, myOperator) => {
 };
 
 equals.addEventListener("click", calculate);
+
+const deleteOneNumber = () => {
+    currInput = screen2.innerHTML;
+    const withoutLastChar = currInput.slice(0, -1);
+    screen2.innerHTML = withoutLastChar;
+};
+
+deleteOne.addEventListener("click", () => {
+    deleteOneNumber();
+});
