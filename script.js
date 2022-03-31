@@ -86,7 +86,8 @@ const operatorBtnFn = (clicked) => {
     ) {
         screen2.innerHTML = "";
     } else if (screen1.innerHTML && screen2.innerHTML) {
-        calculate();
+        screen1.innerHTML;
+        screen2.innerHTML;
     } else {
         screen1.innerHTML = screen2.innerHTML + clicked;
         screen2.innerHTML = "";
