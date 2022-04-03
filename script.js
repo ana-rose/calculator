@@ -65,7 +65,7 @@ dot.addEventListener("click", () => {
     if (screen2.innerHTML.includes(".")) {
         alert("This number already has a decimal point");
     } else if (!screen2.innerHTML) {
-        screen2.innerHTML = "";
+        screen2.innerHTML = "0";
     } else {
         screen2.innerHTML += ".";
     }
