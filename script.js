@@ -151,6 +151,8 @@ const calculate = (firstNumber, secondNumber, myOperator) => {
 
 equals.addEventListener("click", calculate);
 
+// Delete one number button
+
 const deleteOneNumber = () => {
     currInput = screen2.innerHTML;
     const withoutLastChar = currInput.slice(0, -1);
